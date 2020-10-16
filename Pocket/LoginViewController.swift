@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     let loginText: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 10.0, y: 100.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
+        let textField = UITextField()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))   //padding view from the left side of text field
         textField.leftView = paddingView
         textField.leftViewMode = .always
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         return textField
     }()
     let passwordText: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 10.0, y: 100.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
+        let textField = UITextField()
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))   //padding view from the left side of text field
         textField.leftView = paddingView
         textField.leftViewMode = .always
@@ -72,8 +72,10 @@ class LoginViewController: UIViewController {
         button.isEnabled = false
         return button
     }()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     @objc func textFieldDidEndEditing(_ textField: UITextField) {
-        print(textField.text!)
         loginButton.isEnabled = true
     }
     @objc func loginPressed(){
@@ -106,12 +108,14 @@ class LoginViewController: UIViewController {
         setupPasswordTextConstraints()
     }
     private func setupLoginTextConstraints(){
+        loginText.delegate = self
         loginText.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
         loginText.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 50).isActive = true
         loginText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -50).isActive = true
         loginText.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     private func setupPasswordTextConstraints(){
+        passwordText.delegate = self
         passwordText.topAnchor.constraint(equalTo: loginText.bottomAnchor, constant: 20).isActive = true
         passwordText.leftAnchor.constraint(equalTo: loginText.leftAnchor).isActive = true
         passwordText.rightAnchor.constraint(equalTo: loginText.rightAnchor).isActive = true
@@ -128,5 +132,11 @@ class LoginViewController: UIViewController {
         signUpButton.leftAnchor.constraint(equalTo: loginButton.leftAnchor).isActive = true
         signUpButton.rightAnchor.constraint(equalTo: loginButton.rightAnchor).isActive = true
         signUpButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor).isActive = true
+    }
+}
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }
