@@ -42,7 +42,6 @@ class EventsListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupTableVIew()
-        // Do any additional setup after loading the view.
     }
     private func setupTableVIew(){
         view.addSubview(tableView)
@@ -51,7 +50,7 @@ class EventsListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupTableViewConstraints()
-        tableView.separatorColor = UIColor.black
+        tableView.separatorColor = UIColor.clear
         tableView.backgroundColor = .clear
         tableView.refreshControl  = refresher
         tableView.isScrollEnabled = true

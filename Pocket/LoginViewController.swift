@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Login", for: .normal)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         button.clipsToBounds = true
-        button.isEnabled = false
+        button.isEnabled = true
         return button
     }()
     let signUpButton: UIButton = {
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
     }
     private func setupLoginTextConstraints(){
         loginText.delegate = self
-        loginText.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
+        loginText.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
         loginText.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 50).isActive = true
         loginText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -50).isActive = true
         loginText.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -122,7 +122,7 @@ class LoginViewController: UIViewController {
         passwordText.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     private func setupLoginButtonConstraints(){
-        loginButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 500).isActive = true
+        loginButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 600).isActive = true
         loginButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 50).isActive = true
         loginButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -50).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

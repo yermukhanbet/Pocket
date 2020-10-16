@@ -18,18 +18,20 @@ class MainTabBarViewController: UIViewController {
     
     let eventsImage = UIImage(systemName: "person.3.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
     let mapImage = UIImage(systemName: "map.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+    let settingsImage = UIImage(systemName: "gear", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
     
     private func setupTabBar(){
         let eventsViewController = UINavigationController(rootViewController: MainEventsViewController())
         eventsViewController.title = "events"
         eventsViewController.tabBarItem.image = eventsImage
-        
         let mapViewController = UINavigationController(rootViewController: MapViewController())
         mapViewController.title = "map"
         mapViewController.tabBarItem.image = mapImage
-        
-        self.navBar.viewControllers = [eventsViewController, mapViewController]
-        self.navBar.tabBar.barTintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        let settingsViewController = UINavigationController(rootViewController: SettingsViewController())
+        settingsViewController.title = "settings"
+        settingsViewController.tabBarItem.image = settingsImage
+        self.navBar.viewControllers = [eventsViewController, mapViewController,settingsViewController]
+        self.navBar.tabBar.barTintColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
         self.navBar.tabBar.tintColor = .white
     }
 }

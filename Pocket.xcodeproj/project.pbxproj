@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		FA6083AB2539F85700BF9F4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AA2539F85700BF9F4F /* LoginViewController.swift */; };
 		FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */; };
 		FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AE2539F87E00BF9F4F /* MapViewController.swift */; };
+		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FA6083AA2539F85700BF9F4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsViewController.swift; sourceTree = "<group>"; };
 		FA6083AE2539F87E00BF9F4F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,6 @@
 				D7D53061C9DC1B224D4AC4C6 /* Pods-Pocket.debug.xcconfig */,
 				999D6EF5A78D3E9A7B12C24E /* Pods-Pocket.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -100,6 +101,7 @@
 				FA6083A82539F83F00BF9F4F /* EventsListViewController.swift */,
 				FA60839D2539F7CF00BF9F4F /* LaunchScreen.storyboard */,
 				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
+				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
 				FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
 				FA6083A02539F7CF00BF9F4F /* Info.plist */,
@@ -230,6 +232,7 @@
 				FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */,
 				FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */,
 				FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */,
+				FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
