@@ -20,6 +20,7 @@
 		FA6083AB2539F85700BF9F4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AA2539F85700BF9F4F /* LoginViewController.swift */; };
 		FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */; };
 		FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AE2539F87E00BF9F4F /* MapViewController.swift */; };
+		FA79BAC825469E2D007B33F1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79BAC725469E2D007B33F1 /* TableViewCell.swift */; };
 		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		FA6083AA2539F85700BF9F4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsViewController.swift; sourceTree = "<group>"; };
 		FA6083AE2539F87E00BF9F4F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FA79BAC725469E2D007B33F1 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,16 +102,25 @@
 				FA6083982539F7CE00BF9F4F /* Main.storyboard */,
 				FA6083A62539F80900BF9F4F /* MainTabBarViewController.swift */,
 				FA60839B2539F7CF00BF9F4F /* Assets.xcassets */,
-				FA6083A82539F83F00BF9F4F /* EventsListViewController.swift */,
 				FA60839D2539F7CF00BF9F4F /* LaunchScreen.storyboard */,
 				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
+				FA79BAC625469DF9007B33F1 /* Events */,
 				FA35DF4A253C6C5E0020A55B /* GoogleService-Info.plist */,
-				FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
 				FA6083A02539F7CF00BF9F4F /* Info.plist */,
 			);
 			path = Pocket;
+			sourceTree = "<group>";
+		};
+		FA79BAC625469DF9007B33F1 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */,
+				FA79BAC725469E2D007B33F1 /* TableViewCell.swift */,
+				FA6083A82539F83F00BF9F4F /* EventsListViewController.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 				FA6083A92539F83F00BF9F4F /* EventsListViewController.swift in Sources */,
 				FA6083A72539F80900BF9F4F /* MainTabBarViewController.swift in Sources */,
 				FA6083932539F7CE00BF9F4F /* AppDelegate.swift in Sources */,
+				FA79BAC825469E2D007B33F1 /* TableViewCell.swift in Sources */,
 				FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */,
 				FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */,
 				FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */,

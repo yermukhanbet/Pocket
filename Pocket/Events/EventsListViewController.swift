@@ -50,10 +50,11 @@ class EventsListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupTableViewConstraints()
-        tableView.separatorColor = UIColor.clear
+        tableView.separatorColor = UIColor.black
         tableView.backgroundColor = .clear
         tableView.refreshControl  = refresher
         tableView.isScrollEnabled = true
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     private func setupTableViewConstraints(){
         tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
@@ -67,9 +68,12 @@ extension EventsListViewController: UITableViewDelegate, UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell  else{fatalError("Unable to create cell") }
         cell.backgroundColor = .clear
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 360
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 100
