@@ -10,8 +10,8 @@ import UIKit
 import Parchment
 
 class MainEventsViewController: UIViewController {
-    let viewControllers = [EventsListViewController(), EventsListViewController(), EventsListViewController()]
-    let itemNames = ["Main", "Recommended", "All"]
+    let viewControllers = [EventsListViewController(), EventsListViewController(), EventsListViewController(), EventsListViewController()]
+    let itemNames = ["All", "CS", "BA", "CE"]
     override func viewDidLoad() {
         super.viewDidLoad()
         //view.backgroundColor = .white
@@ -40,15 +40,8 @@ class MainEventsViewController: UIViewController {
         pagingViewController.selectedTextColor = .systemGray
         pagingViewController.indicatorColor  = .systemGray
         pagingViewController.select(index: 1)
-        //if the device is in korean, the font is bigger than in english
-        let language = NSLocale.current.languageCode
-        if language == "ko"{
             pagingViewController.font =  UIFont.systemFont(ofSize: 12, weight: .light)
             pagingViewController.selectedFont = UIFont.systemFont(ofSize: 14, weight: .light)
-        }else{
-            pagingViewController.font =  UIFont.systemFont(ofSize: 10, weight: .light)
-            pagingViewController.selectedFont = UIFont.systemFont(ofSize: 11, weight: .light)
-        }
     }
 }
 //Data source for paging view controller
