@@ -31,7 +31,7 @@ class MainTabBarViewController: UIViewController {
         settingsViewController.title = "settings"
         settingsViewController.tabBarItem.image = settingsImage
         self.navBar.viewControllers = [eventsViewController, mapViewController,settingsViewController]
-        self.navBar.tabBar.barTintColor = .lightGray
+        self.navBar.tabBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
         self.navBar.tabBar.tintColor = .white
     }
 }
