@@ -9,3 +9,6 @@
 import Foundation
 
 let PocketNoInternetConnection:String = "No internet connection."
+let PocketUserPasswordChangedMessage:String = "Seems like your password was changed. Please sign in again."
+let PocketUserLoginError:String = "Authentication error"
+let PocketSignUpButton:String = "Do not have account yet?"

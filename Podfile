@@ -8,6 +8,9 @@ target 'Pocket' do
   # Pods for Pocket
   pod 'Parchment'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   pod 'ReachabilitySwift'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods

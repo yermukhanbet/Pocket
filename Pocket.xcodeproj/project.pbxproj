@@ -23,6 +23,10 @@
 		FA79BACA2546AE9F007B33F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */; };
 		FA832012254C606C00F29D78 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */; };
 		FA832015254C63FF00F29D78 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA832014254C63FF00F29D78 /* Strings.swift */; };
+		FA83201A254C6A7000F29D78 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA832019254C6A7000F29D78 /* UserDefaults.swift */; };
+		FA83201C254C6BB800F29D78 /* AccountManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201B254C6BB800F29D78 /* AccountManagerViewController.swift */; };
+		FA83201E254C724200F29D78 /* PocketAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201D254C724200F29D78 /* PocketAccount.swift */; };
+		FA832020254C764500F29D78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201F254C764500F29D78 /* SignUpViewController.swift */; };
 		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,10 @@
 		FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		FA832014254C63FF00F29D78 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		FA832019254C6A7000F29D78 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		FA83201B254C6BB800F29D78 /* AccountManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagerViewController.swift; sourceTree = "<group>"; };
+		FA83201D254C724200F29D78 /* PocketAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketAccount.swift; sourceTree = "<group>"; };
+		FA83201F254C764500F29D78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,10 +117,10 @@
 				FA60839B2539F7CF00BF9F4F /* Assets.xcassets */,
 				FA832013254C63EB00F29D78 /* Model */,
 				FA60839D2539F7CF00BF9F4F /* LaunchScreen.storyboard */,
-				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
 				FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */,
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
+				FA832016254C6A2200F29D78 /* Controller */,
 				FA6083A02539F7CF00BF9F4F /* Info.plist */,
 			);
 			path = Pocket;
@@ -132,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */,
+				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
+				FA83201F254C764500F29D78 /* SignUpViewController.swift */,
 				FA79BAC625469DF9007B33F1 /* Events */,
 			);
 			name = View;
@@ -142,8 +152,18 @@
 			isa = PBXGroup;
 			children = (
 				FA832014254C63FF00F29D78 /* Strings.swift */,
+				FA83201D254C724200F29D78 /* PocketAccount.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA832016254C6A2200F29D78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA832019254C6A7000F29D78 /* UserDefaults.swift */,
+				FA83201B254C6BB800F29D78 /* AccountManagerViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +286,15 @@
 				FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */,
 				FA6083A92539F83F00BF9F4F /* EventsListViewController.swift in Sources */,
 				FA6083A72539F80900BF9F4F /* MainTabBarViewController.swift in Sources */,
+				FA83201A254C6A7000F29D78 /* UserDefaults.swift in Sources */,
 				FA6083932539F7CE00BF9F4F /* AppDelegate.swift in Sources */,
+				FA83201C254C6BB800F29D78 /* AccountManagerViewController.swift in Sources */,
 				FA79BAC825469E2D007B33F1 /* TableViewCell.swift in Sources */,
 				FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */,
 				FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */,
+				FA832020254C764500F29D78 /* SignUpViewController.swift in Sources */,
 				FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */,
+				FA83201E254C724200F29D78 /* PocketAccount.swift in Sources */,
 				FA832012254C606C00F29D78 /* LaunchScreenViewController.swift in Sources */,
 				FA832015254C63FF00F29D78 /* Strings.swift in Sources */,
 				FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */,

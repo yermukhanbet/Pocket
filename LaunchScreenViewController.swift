@@ -8,6 +8,7 @@
 
 import UIKit
 import Reachability
+import Firebase
 
 class LaunchScreenViewController: UIViewController {
     var progressAmount:Float = 0.0
@@ -86,10 +87,7 @@ class LaunchScreenViewController: UIViewController {
     private func checkPoints(){
         startUI()
         if !checkForInternet(){return}
-//        checkVersion(){ (result) in
-//            if !self.lateVersionCheck(isLatest: result){ return}
-//            self.checkUserLogin()
-//        }
+        checkUserLogin()
     }
     private func startUI(){
         self.progressAmount = 0.0
@@ -177,6 +175,43 @@ class LaunchScreenViewController: UIViewController {
             hideUI()
             return false
         }
+    }
+    private func checkUserLogin() {
+        updateProgressBar()
+        let deadline = DispatchTime.now() + .milliseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+            if self.userIsLoggedIn(){
+                let account:[String: Any] = UserDefaults.standard.getAccountData()
+                let email = account["email"] as! String
+                let password = account["password"] as! String
+                print(account)
+                AccountManager.sharedInstance.signIn(with: password, for: email){(success) in
+                    if success{
+                        let vc = MainTabBarViewController()
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true)
+                    }else{
+                        self.showMessage()
+                    }
+                }
+            }else{
+                let loginViewController = LoginViewController()
+                loginViewController.modalPresentationStyle = .fullScreen
+                self.present(loginViewController, animated: true, completion: nil)
+            }
+        }
+    }
+    private func userIsLoggedIn() -> Bool{
+        return UserDefaults.standard.isLoggedIn()
+    }
+    func showMessage(){
+        let alert = UIAlertController(title: PocketUserLoginError, message:  PocketUserPasswordChangedMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Sign in", style: .default, handler: {action in
+            let loginViewController = LoginViewController()
+            loginViewController.modalPresentationStyle = .fullScreen
+            self.present(loginViewController, animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
     }
 }
 extension UIView {

@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         textField.clipsToBounds = true
         textField.layer.borderWidth = 1.0
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isSecureTextEntry = true
         return textField
     }()
     let loginButton: UIButton = {
@@ -56,20 +57,15 @@ class LoginViewController: UIViewController {
         button.setTitle("Login", for: .normal)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         button.clipsToBounds = true
-        button.isEnabled = true
+        button.isEnabled = false
         return button
     }()
     let signUpButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 20
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.backgroundColor = .black
-        button.layer.masksToBounds = true
-        button.setTitle("Sign up", for: .normal)
+        button.setTitle(PocketSignUpButton, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
-        button.clipsToBounds = true
-        button.isEnabled = false
         return button
     }()
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -79,12 +75,17 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = true
     }
     @objc func loginPressed(){
-        let vc = MainTabBarViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        AccountManager.sharedInstance.signIn(with: loginText.text!, for: passwordText.text!){(success) in
+            if success{
+                let vc = MainTabBarViewController()
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .flipHorizontal
+                self.present(vc, animated: true)
+            }
+        }
     }
     @objc func signUpPressed(){
-        let vc = MainTabBarViewController()
+        let vc = SignUpViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
