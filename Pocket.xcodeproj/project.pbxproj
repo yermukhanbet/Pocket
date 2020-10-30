@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E4ED3B99BBE0C4580C2A21C /* Pods_Pocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05607DACD2B626F51BD805CE /* Pods_Pocket.framework */; };
-		FA35DF4B253C6C5E0020A55B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA35DF4A253C6C5E0020A55B /* GoogleService-Info.plist */; };
 		FA6083932539F7CE00BF9F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083922539F7CE00BF9F4F /* AppDelegate.swift */; };
 		FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083942539F7CE00BF9F4F /* SceneDelegate.swift */; };
 		FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083962539F7CE00BF9F4F /* ViewController.swift */; };
@@ -21,6 +20,9 @@
 		FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */; };
 		FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083AE2539F87E00BF9F4F /* MapViewController.swift */; };
 		FA79BAC825469E2D007B33F1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79BAC725469E2D007B33F1 /* TableViewCell.swift */; };
+		FA79BACA2546AE9F007B33F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */; };
+		FA832012254C606C00F29D78 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */; };
+		FA832015254C63FF00F29D78 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA832014254C63FF00F29D78 /* Strings.swift */; };
 		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +30,6 @@
 		05607DACD2B626F51BD805CE /* Pods_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999D6EF5A78D3E9A7B12C24E /* Pods-Pocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket.release.xcconfig"; path = "Target Support Files/Pods-Pocket/Pods-Pocket.release.xcconfig"; sourceTree = "<group>"; };
 		D7D53061C9DC1B224D4AC4C6 /* Pods-Pocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket.debug.xcconfig"; path = "Target Support Files/Pods-Pocket/Pods-Pocket.debug.xcconfig"; sourceTree = "<group>"; };
-		FA35DF4A253C6C5E0020A55B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA60838F2539F7CE00BF9F4F /* Pocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6083922539F7CE00BF9F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA6083942539F7CE00BF9F4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +44,9 @@
 		FA6083AC2539F86B00BF9F4F /* MainEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventsViewController.swift; sourceTree = "<group>"; };
 		FA6083AE2539F87E00BF9F4F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FA79BAC725469E2D007B33F1 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		FA832014254C63FF00F29D78 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,17 +100,18 @@
 		FA6083912539F7CE00BF9F4F /* Pocket */ = {
 			isa = PBXGroup;
 			children = (
+				FA83200E254C5F2B00F29D78 /* View */,
 				FA6083922539F7CE00BF9F4F /* AppDelegate.swift */,
 				FA6083942539F7CE00BF9F4F /* SceneDelegate.swift */,
 				FA6083962539F7CE00BF9F4F /* ViewController.swift */,
 				FA6083982539F7CE00BF9F4F /* Main.storyboard */,
 				FA6083A62539F80900BF9F4F /* MainTabBarViewController.swift */,
 				FA60839B2539F7CF00BF9F4F /* Assets.xcassets */,
+				FA832013254C63EB00F29D78 /* Model */,
 				FA60839D2539F7CF00BF9F4F /* LaunchScreen.storyboard */,
 				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
+				FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */,
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
-				FA79BAC625469DF9007B33F1 /* Events */,
-				FA35DF4A253C6C5E0020A55B /* GoogleService-Info.plist */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
 				FA6083A02539F7CF00BF9F4F /* Info.plist */,
 			);
@@ -121,6 +126,24 @@
 				FA6083A82539F83F00BF9F4F /* EventsListViewController.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		FA83200E254C5F2B00F29D78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */,
+				FA79BAC625469DF9007B33F1 /* Events */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA832013254C63EB00F29D78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA832014254C63FF00F29D78 /* Strings.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA60839F2539F7CF00BF9F4F /* LaunchScreen.storyboard in Resources */,
-				FA35DF4B253C6C5E0020A55B /* GoogleService-Info.plist in Resources */,
 				FA60839C2539F7CF00BF9F4F /* Assets.xcassets in Resources */,
+				FA79BACA2546AE9F007B33F1 /* GoogleService-Info.plist in Resources */,
 				FA60839A2539F7CE00BF9F4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +271,8 @@
 				FA6083AD2539F86B00BF9F4F /* MainEventsViewController.swift in Sources */,
 				FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */,
 				FA6083AF2539F87E00BF9F4F /* MapViewController.swift in Sources */,
+				FA832012254C606C00F29D78 /* LaunchScreenViewController.swift in Sources */,
+				FA832015254C63FF00F29D78 /* Strings.swift in Sources */,
 				FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

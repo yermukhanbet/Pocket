@@ -63,10 +63,12 @@ PODS:
   - nanopb/encode (1.30906.0)
   - Parchment (2.4.0)
   - PromisesObjC (1.2.11)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Parchment
+  - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
@@ -81,6 +83,7 @@ SPEC REPOS:
     - nanopb
     - Parchment
     - PromisesObjC
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
@@ -94,7 +97,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   Parchment: 002785473861582385db5c6725165353c500198e
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: bf5f4932cd57ccb6a42568f5b2ba29c4d2e367aa
+PODFILE CHECKSUM: 85b98b3476c39b36fe1bfad7af2322e89d7587b2
 
 COCOAPODS: 1.9.3
