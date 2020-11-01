@@ -33,8 +33,9 @@ class SettingsViewController: UIViewController {
         label.text = "Please log in"
         return label
     }()
-    @objc func loginButtonTouched(){
+    @objc func logout(){
         let vc = LoginViewController()
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
     override func viewDidLoad() {
@@ -42,20 +43,22 @@ class SettingsViewController: UIViewController {
         setupNavigationController()
         setupTableView()
     }
+    override func viewDidAppear(_ animated: Bool) {
+    }
     private func setupNavigationController(){
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
         navigationItem.title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
         let loginButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("Log out", for: .normal)
         loginButton.setTitleColor(.lightGray, for: .normal)
         loginButton.backgroundColor = .white
         loginButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         loginButton.layer.cornerRadius = 20
         loginButton.layer.borderWidth = 0.1
         loginButton.layer.masksToBounds = true
-        loginButton.addTarget(self, action: #selector(loginButtonTouched), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
         var rightButtons = Array<UIBarButtonItem>()
         let rightButton = UIBarButtonItem(customView: loginButton)
         rightButtons.append(rightButton)

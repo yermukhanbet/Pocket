@@ -68,6 +68,16 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
         return button
     }()
+    let wrongDataLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .clear
+        label.font = .systemFont(ofSize: 13)
+        label.text = PocketInvalidDataLabel
+        label.textAlignment = .center
+        label.textColor = .clear
+        return label
+    }()
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -81,6 +91,8 @@ class LoginViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 vc.modalTransitionStyle = .flipHorizontal
                 self.present(vc, animated: true)
+            }else{
+                self.showWrongDataLabel()
             }
         }
     }
@@ -107,6 +119,7 @@ class LoginViewController: UIViewController {
         setupSignUpConstraints()
         setupLoginTextConstraints()
         setupPasswordTextConstraints()
+        setupWrongDataLabel()
     }
     private func setupLoginTextConstraints(){
         loginText.delegate = self
@@ -133,6 +146,24 @@ class LoginViewController: UIViewController {
         signUpButton.leftAnchor.constraint(equalTo: loginButton.leftAnchor).isActive = true
         signUpButton.rightAnchor.constraint(equalTo: loginButton.rightAnchor).isActive = true
         signUpButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor).isActive = true
+    }
+    private func setupWrongDataLabel(){
+        wrongDataLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        wrongDataLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
+        wrongDataLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        wrongDataLabel.widthAnchor.constraint(equalToConstant:
+            240).isActive = true
+    }
+    private func showWrongDataLabel(){
+        self.wrongDataLabel.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.168627451, blue: 0.3647058824, alpha: 1)
+        self.wrongDataLabel.textColor = .white
+        self.wrongDataLabel.fadeTransition(0.3)
+        let deadline = DispatchTime.now() + .seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+            self.wrongDataLabel.backgroundColor = .clear
+            self.wrongDataLabel.textColor = .clear
+            self.wrongDataLabel.fadeTransition(0.6)
+        }
     }
 }
 extension UIViewController: UITextFieldDelegate{

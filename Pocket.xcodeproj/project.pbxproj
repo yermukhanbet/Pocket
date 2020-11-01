@@ -118,7 +118,6 @@
 				FA832013254C63EB00F29D78 /* Model */,
 				FA60839D2539F7CF00BF9F4F /* LaunchScreen.storyboard */,
 				FA79BAC92546AE9F007B33F1 /* GoogleService-Info.plist */,
-				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
 				FA832016254C6A2200F29D78 /* Controller */,
 				FA6083A02539F7CF00BF9F4F /* Info.plist */,
@@ -142,6 +141,7 @@
 				FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */,
 				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
 				FA83201F254C764500F29D78 /* SignUpViewController.swift */,
+				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
 				FA79BAC625469DF9007B33F1 /* Events */,
 			);
 			name = View;
