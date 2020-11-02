@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController {
         return label
     }()
     @objc func logout(){
+        AccountManager.sharedInstance.signOut()
         let vc = LoginViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)

@@ -112,6 +112,7 @@ class LoginViewController: UIViewController {
         view.addSubview(signUpButton)
         view.addSubview(loginText)
         view.addSubview(passwordText)
+        view.addSubview(wrongDataLabel)
     }
     
     private func setupConstraints(){

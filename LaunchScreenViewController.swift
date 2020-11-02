@@ -184,8 +184,7 @@ class LaunchScreenViewController: UIViewController {
                 let account:[String: Any] = UserDefaults.standard.getAccountData()
                 let email = account["email"] as! String
                 let password = account["password"] as! String
-                print(account)
-                AccountManager.sharedInstance.signIn(with: password, for: email){(success) in
+                AccountManager.sharedInstance.signIn(with: email, for: password){(success) in
                     if success{
                         let vc = MainTabBarViewController()
                         vc.modalPresentationStyle = .fullScreen

@@ -33,6 +33,9 @@ class AccountManager: NSObject {
             }
         }
     }
+    public func signOut(){
+        UserDefaults.standard.signOut()
+    }
     public func save(user:String, with password: String){
         UserDefaults.standard.saveAccount(email: user, password: password)
         UserDefaults.standard.setIsLoggedIn(value: true)

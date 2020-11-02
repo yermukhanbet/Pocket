@@ -34,4 +34,8 @@ extension UserDefaults{
         let data: [String: Any] = ["email":email, "password":password]
         return data
     }
+    func signOut(){
+        setIsLoggedIn(value: false)
+        deleteAccount()
+    }
 }
