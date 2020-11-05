@@ -1,76 +1,74 @@
-//
-//  SettingsViewController.swift
-//  Pocket
-//
-//  Created by Yessen Yermukhanbet on 10/17/20.
-//  Copyright © 2020 Yessen Yermukhanbet. All rights reserved.
-//
-
 import UIKit
 
 class SettingsViewController: UIViewController {
-    let tableView = UITableView()
-    let sections: [String] = ["My profile", "My events","Preferences"]
-    let sectionRows: [[String]] = [["Edit Profile", "My Account"],["List of events"], ["Language", "Time fomat","Log out"]]
-    let profileImage: UIImageView = {
+    lazy var tableView = UITableView()
+    let sectionRows: [[String]] = [[PocketPolicyLabel], [PocketLogoutLabel]]
+    lazy var profileImage: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "default_profile")
         imageView.image = image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 40
         imageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         imageView.layer.borderWidth = 0.1
         imageView.layer.masksToBounds = true
         return imageView
     }()
-    let profileName: UILabel = {
+    lazy var profileNickName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = .black
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.text = "Please log in"
+        label.font = .systemFont(ofSize: 19, weight: .bold)
+        label.text = PocketAccount.savedAccount.nickName
         return label
     }()
-    @objc func logout(){
-        AccountManager.sharedInstance.signOut()
-        let vc = LoginViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+    lazy var profileEmail: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.text = PocketAccount.savedAccount.email
+        return label
+    }()
+    @objc func buttonActionHandler(_ sender: UIButton){
+        switch sender.titleLabel?.text{
+        case PocketPolicyLabel:
+            guard let url = URL(string: "https://www.apple.com/legal/privacy/") else { return }
+            UIApplication.shared.open(url)
+            break
+        case PocketLogoutLabel:
+            AccountManager.sharedInstance.signOut()
+            let vc = LoginViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+            break
+        case .none:
+            break
+        case .some(_):
+            break
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationController()
+        view.backgroundColor = .white
         setupTableView()
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.hideNavigationBar(animated: false)
     }
-    private func setupNavigationController(){
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
-        navigationItem.title = "Settings"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
-        let loginButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        loginButton.setTitle("Log out", for: .normal)
-        loginButton.setTitleColor(.lightGray, for: .normal)
-        loginButton.backgroundColor = .white
-        loginButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        loginButton.layer.cornerRadius = 20
-        loginButton.layer.borderWidth = 0.1
-        loginButton.layer.masksToBounds = true
-        loginButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
-        var rightButtons = Array<UIBarButtonItem>()
-        let rightButton = UIBarButtonItem(customView: loginButton)
-        rightButtons.append(rightButton)
-        self.navigationItem.rightBarButtonItems = rightButtons
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showNavigationBar(animated: true)
     }
     private func setupTableView(){
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
+        tableView.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
         self.view.addSubview(tableView)
         setTableVewConstraints()
         setHeaderView()
@@ -82,55 +80,70 @@ class SettingsViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     private func setHeaderView(){
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200))
-        headerView.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 220))
+        headerView.backgroundColor = .white
         tableView.tableHeaderView = headerView
         //Profile image in header view
         headerView.addSubview(profileImage)
-        profileImage.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 50).isActive = true
-        profileImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        profileImage.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20).isActive = true
-        profileImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        profileImage.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 52).isActive = true
+        profileImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        profileImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        profileImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
         //Profile name in header view
-        headerView.addSubview(profileName)
-        profileName.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor).isActive = true
-        profileName.leftAnchor.constraint(equalTo: profileImage.rightAnchor, constant: 20).isActive = true
-        profileName.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        profileName.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        headerView.addSubview(profileNickName)
+        profileNickName.topAnchor.constraint(equalTo: profileImage.bottomAnchor,constant: 10).isActive = true
+        profileNickName.centerXAnchor.constraint(equalTo: profileImage.centerXAnchor).isActive = true
+        profileNickName.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+        profileNickName.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        headerView.addSubview(profileEmail)
+        profileEmail.topAnchor.constraint(equalTo: profileNickName.bottomAnchor,constant: 10).isActive = true
+        profileEmail.centerXAnchor.constraint(equalTo: profileImage.centerXAnchor).isActive = true
+        profileEmail.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+        profileEmail.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
 }
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionRows[section].count
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70)
-        view.backgroundColor = .white
-        let headerTitle = UILabel()
-        headerTitle.frame = CGRect(x: 10, y: 5, width: 130, height: 70)
-        view.addSubview(headerTitle)
-        headerTitle.text = sections[section]
-        headerTitle.font = .boldSystemFont(ofSize: 23)
+        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 15)
+        view.backgroundColor = #colorLiteral(red: 0.9065746577, green: 0.9065746577, blue: 0.9065746577, alpha: 1)
         return view
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.6892925942)
-        cell.textLabel?.text = sectionRows[indexPath.section][indexPath.row]
+        let button = UIButton(frame: CGRect(x: 10, y: 0, width: self.view.frame.width, height: 72))
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(buttonActionHandler), for: .touchUpInside)
+        button.setTitle(sectionRows[indexPath.section][indexPath.row], for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentHorizontalAlignment = .left
+        cell.backgroundColor = .white
         cell.separatorInset = .zero
+        cell.contentView.addSubview(button)
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionRows.count
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
+}
+
+extension UIViewController {
+    func hideNavigationBar(animated: Bool){
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
+    }
+
+    func showNavigationBar(animated: Bool) {
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
 }

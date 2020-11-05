@@ -28,6 +28,8 @@
 		FA83201E254C724200F29D78 /* PocketAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201D254C724200F29D78 /* PocketAccount.swift */; };
 		FA832020254C764500F29D78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201F254C764500F29D78 /* SignUpViewController.swift */; };
 		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
+		FACFA24025542B0600E0B2C7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */; };
+		FACFA242255431B300E0B2C7 /* NrwEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFA241255431B300E0B2C7 /* NrwEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		FA83201D254C724200F29D78 /* PocketAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketAccount.swift; sourceTree = "<group>"; };
 		FA83201F254C764500F29D78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		FACFA241255431B300E0B2C7 /* NrwEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NrwEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +145,9 @@
 				FA832011254C606C00F29D78 /* LaunchScreenViewController.swift */,
 				FA6083AA2539F85700BF9F4F /* LoginViewController.swift */,
 				FA83201F254C764500F29D78 /* SignUpViewController.swift */,
+				FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */,
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
+				FACFA241255431B300E0B2C7 /* NrwEventViewController.swift */,
 				FA79BAC625469DF9007B33F1 /* Events */,
 			);
 			name = View;
@@ -283,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6083AB2539F85700BF9F4F /* LoginViewController.swift in Sources */,
+				FACFA242255431B300E0B2C7 /* NrwEventViewController.swift in Sources */,
 				FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */,
 				FA6083A92539F83F00BF9F4F /* EventsListViewController.swift in Sources */,
 				FA6083A72539F80900BF9F4F /* MainTabBarViewController.swift in Sources */,
@@ -298,6 +305,7 @@
 				FA832012254C606C00F29D78 /* LaunchScreenViewController.swift in Sources */,
 				FA832015254C63FF00F29D78 /* Strings.swift in Sources */,
 				FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */,
+				FACFA24025542B0600E0B2C7 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,15 +14,16 @@ class MainEventsViewController: UIViewController {
     let itemNames = ["All", "CS", "BA", "CE"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = .white
-        setupNavigation()
         createParchment()
     }
-    private func setupNavigation(){
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationItem.title = "Events"
-        navigationController?.navigationBar.prefersLargeTitles = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        self.hideNavigationBar(animated: true)
     }
     private func createParchment(){
         let pagingViewController = PagingViewController()
