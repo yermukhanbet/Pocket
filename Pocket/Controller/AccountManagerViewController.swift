@@ -28,6 +28,7 @@ class AccountManager: NSObject {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if error != nil{
                 self.save(user: email, with: password)
+                print(authResult)
                 completion(true)
             }else{
                 completion(false)

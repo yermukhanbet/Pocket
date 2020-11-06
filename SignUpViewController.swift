@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
         textField.leftViewMode = .always
         textField.backgroundColor = .clear
         textField.keyboardAppearance = .dark
-        textField.placeholder = "Enter your Login"
+        textField.placeholder = "Enter your Email"
         textField.font = UIFont.systemFont(ofSize: 18.0)
         textField.resignFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -88,6 +88,16 @@ class SignUpViewController: UIViewController {
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }
+    let wrongDataLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .clear
+        label.font = .systemFont(ofSize: 13)
+        label.text = PocketInvalidDataLabel
+        label.textAlignment = .center
+        label.textColor = .clear
+        return label
+    }()
     lazy var separationLines:[UIView] = [createSeparationLine(),createSeparationLine(), createSeparationLine()]
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
           self.view.endEditing(true)
@@ -102,6 +112,8 @@ class SignUpViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 vc.modalTransitionStyle = .flipHorizontal
                 self.present(vc, animated: true)
+            }else{
+                self.showWrongDataLabel()
             }
         }
     }
@@ -122,6 +134,7 @@ class SignUpViewController: UIViewController {
         self.view.addSubview(separationLines[0])
         self.view.addSubview(separationLines[1])
         self.view.addSubview(separationLines[2])
+        view.addSubview(wrongDataLabel)
     }
     func setupConstraints(){
         backgrounImage.frame = self.view.frame
@@ -133,6 +146,7 @@ class SignUpViewController: UIViewController {
         setLoginConstraint()
         setPasswordConstraint()
         setSeparationLineConstraint()
+        setupWrongDataLabel()
     }
     private func setLogoConstraints(){
         logoImage.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 130).isActive = true
@@ -191,5 +205,23 @@ class SignUpViewController: UIViewController {
         separationLines[2].bottomAnchor.constraint(equalTo: separationLines[0].topAnchor, constant: -2).isActive = true
         separationLines[2].rightAnchor.constraint(equalTo: login.leftAnchor).isActive = true
         separationLines[2].widthAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    private func setupWrongDataLabel(){
+        wrongDataLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        wrongDataLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
+        wrongDataLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        wrongDataLabel.widthAnchor.constraint(equalToConstant:
+            240).isActive = true
+    }
+    private func showWrongDataLabel(){
+        self.wrongDataLabel.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.168627451, blue: 0.3647058824, alpha: 1)
+        self.wrongDataLabel.textColor = .white
+        self.wrongDataLabel.fadeTransition(0.3)
+        let deadline = DispatchTime.now() + .seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+            self.wrongDataLabel.backgroundColor = .clear
+            self.wrongDataLabel.textColor = .clear
+            self.wrongDataLabel.fadeTransition(0.6)
+        }
     }
 }
