@@ -16,6 +16,7 @@ class AccountManager: NSObject {
                 UserDefaults.standard.setIsLoggedIn(value: false)
                 completion(false)
             } else {
+                print(result)
                 self.save(user: email, with: password)
                 let tempAccount = PocketAccount(email: email, password: password)
                 PocketAccount.savedAccount = tempAccount

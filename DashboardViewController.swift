@@ -125,8 +125,11 @@ class DashboardViewController: UIViewController {
         if number == 0{
             let vc = MainEventsViewController()
             self.navigationController?.pushViewController(vc, animated: true)
-        }else{
+        }else if number == 1{
             let vc = MapViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = NewEventViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
