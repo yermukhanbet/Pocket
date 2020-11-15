@@ -24,7 +24,7 @@ class AccountManager: NSObject {
             }
         }
     }
-    public func signUp(with email: String, for password: String, completion: @escaping (_ success: Bool) -> Void) {
+    public func signUp(with email: String, for password: String,and id: String, completion: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if error != nil{
                 self.save(user: email, with: password)

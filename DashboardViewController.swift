@@ -22,7 +22,7 @@ class DashboardViewController: UIViewController {
     }()
     lazy var headerImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "dashboardImage")
+        imageView.image = UIImage(named: "dashboardImag")
         imageView.backgroundColor = .white
         return imageView
     }()
