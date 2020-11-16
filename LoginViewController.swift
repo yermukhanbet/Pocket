@@ -98,14 +98,17 @@ class LoginViewController: UIViewController {
     }
     @objc func signUpPressed(){
         let vc = SignUpViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubViews()
         setupConstraints()
         view.backgroundColor = .white
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     private func addSubViews(){
         view.addSubview(loginButton)

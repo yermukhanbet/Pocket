@@ -211,6 +211,10 @@ class SignUpViewController: UIViewController {
         addViews()
         setupConstraints()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     private func addViews(){
         self.view.addSubview(backgrounImage)
         self.view.addSubview(logoImage)
