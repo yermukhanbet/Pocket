@@ -12,6 +12,7 @@ import FirebaseFirestore
 
 class NewEventViewController: UIViewController {
     var db: Firestore!
+    var time: String = ""
     struct Event{
         let title: String
         let description: String
@@ -53,6 +54,11 @@ class NewEventViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    lazy var building: UIButton = {
+        let button = UIButton()
+        button.setTitle("Set building", for: .normal)
+        return button
+    }()
     let addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +72,13 @@ class NewEventViewController: UIViewController {
         button.isEnabled = false
         return button
     }()
+    @objc func buildingPressed(){
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Click", style: .cancel, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     @objc func addPressed(){
         post(event: titleText.text!, with: descriptionText.text!)
     }

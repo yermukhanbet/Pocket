@@ -129,7 +129,7 @@ class DashboardViewController: UIViewController {
             let vc = MapViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
-            let vc = NewEventViewController()
+            let vc = AddEventViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

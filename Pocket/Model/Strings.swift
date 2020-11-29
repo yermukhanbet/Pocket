@@ -27,3 +27,9 @@ let PocketDashDescriptionSecond: String = "Check out the interactive map of our 
 let PocketDashDescriptionThird: String = "Have idea? Add your event and gather people!"
 let PocketDashDescriptionFourth: String = "Study together with pocket tutor!"
 let PocketDashDescriptionFifth: String = "When is the evnet? Check in the calendar!"
+
+let pocketEventTitle: String = "Event title"
+let pocketEventDescription: String = "Event description"
+let pocketEventRoom: String = "Event room"
+let pocketEventParticipants: String = "Event participants"
+let pocketEventTime: String = "Event time  (yy-mm-dd)"
