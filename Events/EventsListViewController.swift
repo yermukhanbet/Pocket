@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
 
 class EventsListViewController: UIViewController {
+    var db: Firestore!
     var tableView = UITableView()
+    var data:  [Dictionary<String, Any>] = []
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .lightGray
@@ -42,6 +46,8 @@ class EventsListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupTableVIew()
+        setupFirestore()
+        getEvents()
     }
     private func setupTableVIew(){
         view.addSubview(tableView)
@@ -62,6 +68,24 @@ class EventsListViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
+    func setupFirestore(){
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+    }
+    private func getEvents(){
+        db.collection("events").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.data.append(document.data())
+                    print(document.data())
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 extension EventsListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,12 +94,13 @@ extension EventsListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell  else{fatalError("Unable to create cell") }
         cell.backgroundColor = .clear
+        cell.setDetailss(name: self.data[indexPath.section]["title"] as! String, description: self.data[indexPath.section]["description"] as! String, building: self.data[indexPath.section]["building"] as! String, time: self.data[indexPath.section]["startTime"] as? String ?? "", duration: self.data[indexPath.section]["duration"] as? String ?? "")
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 360
+        return 200
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 100
+        return self.data.count
     }
 }

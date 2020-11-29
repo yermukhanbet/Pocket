@@ -10,7 +10,7 @@ import UIKit
 import Parchment
 
 class MainEventsViewController: UIViewController {
-    let viewControllers = [EventsListViewController(), EventsListViewController(), EventsListViewController(), EventsListViewController()]
+    let viewControllers = [EventsListViewController(),UIViewController(), UIViewController(), UIViewController()]
     let itemNames = ["All", "CS", "BA", "CE"]
     override func viewDidLoad() {
         super.viewDidLoad()

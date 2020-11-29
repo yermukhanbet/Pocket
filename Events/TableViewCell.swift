@@ -19,22 +19,34 @@ class TableViewCell: UITableViewCell {
         view.layer.masksToBounds = true
         return view
     }()
-    let eventPic: UIImageView = {
-        let imageView = UIImageView()
-        let image = UIImage(named: "events_default")
-        imageView.image = image
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.borderWidth = 0.1
-        imageView.layer.cornerRadius = 40
-        imageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        imageView.layer.masksToBounds = true
-        return imageView
-    }()
     let eventName: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Event name"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    let eventDescriptioon: UILabel = {
+        let label = UILabel()
+        label.text = "Event name"
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    let eventBuilding: UILabel =  {
+        let label = UILabel()
+        label.text = "Event name"
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    let eventDuration: UILabel = {
+        let label = UILabel()
+        label.text = "Event name"
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    let eventTime: UILabel = {
+        let label = UILabel()
+        label.text = "Event name"
+        label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
     override func awakeFromNib() {
@@ -47,12 +59,19 @@ class TableViewCell: UITableViewCell {
     }
     private func addViews(){
         self.contentView.addSubview(backView)
-        backView.addSubview(eventPic)
-        //backView.addSubview(eventName)
+        backView.addSubview(eventName)
+        backView.addSubview(eventDescriptioon)
+        backView.addSubview(eventBuilding)
+        backView.addSubview(eventTime)
+        backView.addSubview(eventDuration)
     }
     private func setConstraints(){
         setBackViewConstraints()
-        setEventPicConstraints()
+        eventName.frame = CGRect(x: 10, y: 10, width: self.contentView.frame.width * 0.8, height: 20)
+        eventDescriptioon.frame = CGRect(x: 10, y: 30, width: self.contentView.frame.width * 0.8, height: 20)
+        eventBuilding.frame = CGRect(x: 10, y: 50, width: self.contentView.frame.width * 0.8, height: 20)
+        eventTime.frame = CGRect(x: 10, y: 70, width: self.contentView.frame.width * 0.8, height: 20)
+        eventDuration.frame = CGRect(x: 10, y: 90, width: self.contentView.frame.width * 0.8, height: 20)
     }
     private func setBackViewConstraints(){
         backView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
@@ -60,14 +79,17 @@ class TableViewCell: UITableViewCell {
         backView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
         backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
-    private func setEventPicConstraints(){
-        eventPic.topAnchor.constraint(equalTo: backView.topAnchor, constant: 100).isActive = true
-        eventPic.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 30).isActive = true
-        eventPic.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        eventPic.widthAnchor.constraint(equalToConstant: 130).isActive = true
-    }
-    private func setEventNameConstraints(){
-        eventName.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20).isActive = true
+    public func setDetailss(name: String, description: String, building: String, time: String, duration: String){
+        self.eventName.text = name
+        self.eventDescriptioon.text = description
+        self.eventBuilding.text = building
+        self.eventTime.text = time
+        self.eventDuration.text = duration
+        self.eventName.fadeTransition(0.3)
+        self.eventDescriptioon.fadeTransition(0.3)
+        self.eventBuilding.fadeTransition(0.3)
+        self.eventTime.fadeTransition(0.3)
+        self.eventDuration.fadeTransition(0.3)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
