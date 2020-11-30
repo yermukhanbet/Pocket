@@ -10,6 +10,7 @@
 		3E4ED3B99BBE0C4580C2A21C /* Pods_Pocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05607DACD2B626F51BD805CE /* Pods_Pocket.framework */; };
 		94552D50256F9A2000BD5E1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94552D4F256F9A2000BD5E1B /* GoogleService-Info.plist */; };
 		94552D8E256FC8F000BD5E1B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94552D8D256FC8EF00BD5E1B /* AddEventViewController.swift */; };
+		94F73895257502F900F3D410 /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F73894257502F900F3D410 /* MapDetailViewController.swift */; };
 		FA6083932539F7CE00BF9F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083922539F7CE00BF9F4F /* AppDelegate.swift */; };
 		FA6083952539F7CE00BF9F4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083942539F7CE00BF9F4F /* SceneDelegate.swift */; };
 		FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6083962539F7CE00BF9F4F /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		05607DACD2B626F51BD805CE /* Pods_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94552D4F256F9A2000BD5E1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94552D8D256FC8EF00BD5E1B /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = Events/AddEventViewController.swift; sourceTree = "<group>"; };
+		94F73894257502F900F3D410 /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
 		999D6EF5A78D3E9A7B12C24E /* Pods-Pocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket.release.xcconfig"; path = "Target Support Files/Pods-Pocket/Pods-Pocket.release.xcconfig"; sourceTree = "<group>"; };
 		D7D53061C9DC1B224D4AC4C6 /* Pods-Pocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket.debug.xcconfig"; path = "Target Support Files/Pods-Pocket/Pods-Pocket.debug.xcconfig"; sourceTree = "<group>"; };
 		FA60838F2539F7CE00BF9F4F /* Pocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,8 +119,6 @@
 				FA83200E254C5F2B00F29D78 /* View */,
 				FA6083922539F7CE00BF9F4F /* AppDelegate.swift */,
 				FA6083942539F7CE00BF9F4F /* SceneDelegate.swift */,
-				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
-				FA6083A62539F80900BF9F4F /* MainTabBarViewController.swift */,
 				FA6083962539F7CE00BF9F4F /* ViewController.swift */,
 				FA6083982539F7CE00BF9F4F /* Main.storyboard */,
 				FA60839B2539F7CF00BF9F4F /* Assets.xcassets */,
@@ -151,6 +151,9 @@
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
 				FACFA241255431B300E0B2C7 /* NewEventViewController.swift */,
 				94552D8D256FC8EF00BD5E1B /* AddEventViewController.swift */,
+				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
+				94F73894257502F900F3D410 /* MapDetailViewController.swift */,
+				FA6083A62539F80900BF9F4F /* MainTabBarViewController.swift */,
 				FA79BAC625469DF9007B33F1 /* Events */,
 			);
 			name = View;
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F73895257502F900F3D410 /* MapDetailViewController.swift in Sources */,
 				FA6083AB2539F85700BF9F4F /* LoginViewController.swift in Sources */,
 				FACFA242255431B300E0B2C7 /* NewEventViewController.swift in Sources */,
 				FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */,
