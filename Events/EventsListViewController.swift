@@ -31,6 +31,7 @@ class EventsListViewController: UIViewController {
         //self.playSound(soundFileName: "start")
     }
     func update(){
+        self.getEvents()
         let deadline = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadline){
             //self.playSound(soundFileName: "finish")
@@ -53,6 +54,8 @@ class EventsListViewController: UIViewController {
         view.addSubview(tableView)
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints =  false
+        tableView.separatorColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
         setupTableViewConstraints()
@@ -80,7 +83,6 @@ class EventsListViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     self.data.append(document.data())
-                    print(document.data())
                 }
                 self.tableView.reloadData()
             }
@@ -94,11 +96,11 @@ extension EventsListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell  else{fatalError("Unable to create cell") }
         cell.backgroundColor = .clear
-        cell.setDetailss(name: self.data[indexPath.section]["title"] as! String, description: self.data[indexPath.section]["description"] as! String, building: self.data[indexPath.section]["building"] as! String, time: self.data[indexPath.section]["startTime"] as? String ?? "", duration: self.data[indexPath.section]["duration"] as? String ?? "")
+        cell.setDetailss(name: self.data[indexPath.section]["title"] as! String, description: self.data[indexPath.section]["description"] as! String, building: self.data[indexPath.section]["building"] as! String, time: self.data[indexPath.section]["startTime"] as? String ?? "Not given", duration: self.data[indexPath.section]["duration"] as? String ?? "Not given")
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.data.count

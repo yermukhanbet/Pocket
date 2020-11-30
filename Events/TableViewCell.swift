@@ -13,9 +13,6 @@ class TableViewCell: UITableViewCell {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 30
-        view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        view.layer.borderWidth = 0.1
         view.layer.masksToBounds = true
         return view
     }()
@@ -80,11 +77,11 @@ class TableViewCell: UITableViewCell {
         backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
     }
     public func setDetailss(name: String, description: String, building: String, time: String, duration: String){
-        self.eventName.text = name
-        self.eventDescriptioon.text = description
-        self.eventBuilding.text = building
-        self.eventTime.text = time
-        self.eventDuration.text = duration
+        self.eventName.text = "Name: \(name)"
+        self.eventDescriptioon.text = "Description:\(description)"
+        self.eventBuilding.text = "Building: \(building)"
+        self.eventTime.text = "Date: \(time)"
+        self.eventDuration.text = "Duration: \(duration)"
         self.eventName.fadeTransition(0.3)
         self.eventDescriptioon.fadeTransition(0.3)
         self.eventBuilding.fadeTransition(0.3)

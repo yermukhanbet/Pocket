@@ -40,7 +40,7 @@ class MainEventsViewController: UIViewController {
         pagingViewController.indicatorOptions = .visible(height: 1, zIndex: Int.max, spacing: .init(top: 0, left: 5, bottom: 0, right: 5), insets: .init(top: 0, left: 0, bottom: 0, right: 0))
         pagingViewController.selectedTextColor = .systemGray
         pagingViewController.indicatorColor  = .systemGray
-        pagingViewController.select(index: 1)
+        pagingViewController.select(index: 0)
             pagingViewController.font =  UIFont.systemFont(ofSize: 12, weight: .light)
             pagingViewController.selectedFont = UIFont.systemFont(ofSize: 14, weight: .light)
     }
