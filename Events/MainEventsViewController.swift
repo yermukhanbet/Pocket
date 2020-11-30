@@ -33,7 +33,7 @@ class MainEventsViewController: UIViewController {
         pagingViewController.didMove(toParent: self)
         pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
         pagingViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        pagingViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        pagingViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         pagingViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         pagingViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         pagingViewController.menuItemSize = .fixed(width: self.view.frame.width/3, height: 40)

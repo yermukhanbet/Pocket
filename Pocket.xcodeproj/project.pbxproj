@@ -31,7 +31,6 @@
 		FA832020254C764500F29D78 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83201F254C764500F29D78 /* SignUpViewController.swift */; };
 		FAA570B02539FEA70041A3C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */; };
 		FACFA24025542B0600E0B2C7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */; };
-		FACFA242255431B300E0B2C7 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFA241255431B300E0B2C7 /* NewEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		FA83201F254C764500F29D78 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		FACFA241255431B300E0B2C7 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +147,6 @@
 				FA83201F254C764500F29D78 /* SignUpViewController.swift */,
 				FACFA23F25542B0600E0B2C7 /* DashboardViewController.swift */,
 				FAA570AF2539FEA70041A3C7 /* SettingsViewController.swift */,
-				FACFA241255431B300E0B2C7 /* NewEventViewController.swift */,
 				94552D8D256FC8EF00BD5E1B /* AddEventViewController.swift */,
 				FA6083AE2539F87E00BF9F4F /* MapViewController.swift */,
 				94F73894257502F900F3D410 /* MapDetailViewController.swift */,
@@ -296,7 +293,6 @@
 			files = (
 				94F73895257502F900F3D410 /* MapDetailViewController.swift in Sources */,
 				FA6083AB2539F85700BF9F4F /* LoginViewController.swift in Sources */,
-				FACFA242255431B300E0B2C7 /* NewEventViewController.swift in Sources */,
 				FA6083972539F7CE00BF9F4F /* ViewController.swift in Sources */,
 				FA6083A92539F83F00BF9F4F /* EventsListViewController.swift in Sources */,
 				FA6083A72539F80900BF9F4F /* MainTabBarViewController.swift in Sources */,

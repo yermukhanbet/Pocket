@@ -14,6 +14,7 @@ class EventsListViewController: UIViewController {
     var db: Firestore!
     var tableView = UITableView()
     var data:  [Dictionary<String, Any>] = []
+    var activityView:  UIActivityIndicatorView?
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .lightGray
@@ -31,6 +32,7 @@ class EventsListViewController: UIViewController {
         //self.playSound(soundFileName: "start")
     }
     func update(){
+        self.data = []
         self.getEvents()
         let deadline = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadline){
@@ -49,6 +51,10 @@ class EventsListViewController: UIViewController {
         setupTableVIew()
         setupFirestore()
         getEvents()
+        self.showActivityIndicator()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     private func setupTableVIew(){
         view.addSubview(tableView)
@@ -84,8 +90,22 @@ class EventsListViewController: UIViewController {
                 for document in querySnapshot!.documents {
                     self.data.append(document.data())
                 }
+                self.hideActivityIndicator()
                 self.tableView.reloadData()
             }
+        }
+    }
+    func showActivityIndicator() {
+        activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        activityView?.center = self.view.center
+        self.view.addSubview(activityView!)
+        activityView?.startAnimating()
+        self.tableView.separatorColor = .clear
+    }
+    func hideActivityIndicator(){
+        if (activityView != nil){
+            activityView?.stopAnimating()
+            self.tableView.separatorColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
     }
 }
