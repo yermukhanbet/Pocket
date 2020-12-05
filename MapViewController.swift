@@ -45,6 +45,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = .black
         view.backgroundColor = .white
         scrollView.frame = self.view.frame
         self.view.addSubview(scrollView)

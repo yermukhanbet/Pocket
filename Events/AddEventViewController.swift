@@ -150,7 +150,17 @@ class AddEventViewController: UIViewController {
         super.viewDidLoad()
         setUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        self.hideNavigationBar(animated: true)
+    }
     private func setUI(){
+        self.navigationController?.navigationBar.barTintColor = .black
         self.view.addSubview(scrollView)
         setScrollView()
         self.view.addSubview(addButton)
@@ -159,7 +169,7 @@ class AddEventViewController: UIViewController {
     }
     private func setScrollView(){
         scrollView.frame = self.view.safeAreaLayoutGuide.layoutFrame
-        scrollView.backgroundColor = .yellow
+        scrollView.backgroundColor = .white
         let distanceFromTop = 50
         let height = 40
         let difference = 20
