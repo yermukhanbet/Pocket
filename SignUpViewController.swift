@@ -186,17 +186,16 @@ class SignUpViewController: UIViewController {
         }
     }
     @objc func signUpButtonTouched(){
-        AccountManager.sharedInstance.signUp(with: login.text!, for: password.text!, and: studentId.text!){(success) in
+        AccountManager.sharedInstance.signUp(with: login.text!, for: password.text!, and: studentId.text!){(success, uid) in
             if success{
                 let settings = FirestoreSettings()
                 Firestore.firestore().settings = settings
                 self.db = Firestore.firestore()
-                let number = Int.random(in: 0...999)
                 var payload = [String: Any]()
                 payload["name"] = self.name.text!
                 payload["studentId"] = self.studentId.text!
                 payload["department"] = self.department.text!
-                self.db.collection("users").document(String(number)).setData(["payload":payload, "uid":"123"])
+                self.db.collection("users").document(uid).setData(["payload":payload, "uid":uid])
                 let vc = MainTabBarViewController()
                 vc.modalPresentationStyle = .fullScreen
                 vc.modalTransitionStyle = .flipHorizontal

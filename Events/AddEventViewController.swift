@@ -267,11 +267,11 @@ extension AddEventViewController{
         db = Firestore.firestore()
     }
     public func post(event title: String, with description: String, room: String, date: String, building: String, duration: String){
-        let number = Int.random(in: 0...999)
+        let identifier = UUID()
         var user = [String: Any]()
         user["email"] = PocketAccount.savedAccount.email
-        user["uid"] = "123"
-        db.collection("events").document(String(number)).setData(["building":building,"duration":duration, "room":room,"startTime":date,"description":description, "title":title, "user":user])
+        user["uid"] = PocketAccount.savedAccount.uid
+        db.collection("events").document(identifier.uuidString).setData(["building":building,"duration":duration, "room":room,"startTime":date,"description":description, "title":title, "user":user])
         getData()
         showMessage()
     }

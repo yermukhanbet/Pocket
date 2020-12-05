@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 class AccountManager: NSObject {
     static let sharedInstance = AccountManager()
     public func signIn(with email: String, for password: String, completion: @escaping (_ success: Bool) -> Void) {
@@ -17,29 +19,38 @@ class AccountManager: NSObject {
                 completion(false)
             } else {
                 print(result)
-                self.save(user: email, with: password)
-                let tempAccount = PocketAccount(email: email, password: password)
-                PocketAccount.savedAccount = tempAccount
-                completion(true)
+                let user = Auth.auth().currentUser
+                if let user = user{
+                    let uid = user.uid
+                    let email = user.email
+                    self.save(user: email!, with: password, uid: uid)
+                    let tempAccount = PocketAccount(email: email!, password: password, uid: uid)
+                    PocketAccount.savedAccount = tempAccount
+                    completion(true)
+                }
+                completion(false)
             }
         }
     }
-    public func signUp(with email: String, for password: String,and id: String, completion: @escaping (_ success: Bool) -> Void) {
+    public func signUp(with email: String, for password: String,and id: String, completion: @escaping (_ success: Bool, _ uid: String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if error != nil{
-                self.save(user: email, with: password)
-                print(authResult)
-                completion(true)
+                let user = Auth.auth().currentUser
+                if let user = user{
+                    let uid = user.uid
+                    self.save(user: email, with: password, uid: uid)
+                    completion(true, uid)
+                }
             }else{
-                completion(false)
+                completion(false, "nil")
             }
         }
     }
     public func signOut(){
         UserDefaults.standard.signOut()
     }
-    public func save(user:String, with password: String){
-        UserDefaults.standard.saveAccount(email: user, password: password)
+    public func save(user:String, with password: String, uid: String){
+        UserDefaults.standard.saveAccount(email: user, password: password, uid: uid)
         UserDefaults.standard.setIsLoggedIn(value: true)
         let tempAcc = PocketAccount(email: user, password: password)
         PocketAccount.savedAccount = tempAcc

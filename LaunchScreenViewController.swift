@@ -207,6 +207,7 @@ class LaunchScreenViewController: UIViewController {
         let alert = UIAlertController(title: PocketUserLoginError, message:  PocketUserPasswordChangedMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Sign in", style: .default, handler: {action in
             let loginViewController =  UINavigationController(rootViewController: LoginViewController())
+            loginViewController.modalPresentationStyle = .fullScreen
             self.present(loginViewController, animated: true, completion: nil)
         }))
         self.present(alert, animated: true)

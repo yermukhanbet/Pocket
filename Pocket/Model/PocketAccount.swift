@@ -15,13 +15,15 @@ class PocketAccount: NSObject {
     var nickName: String
     var department: String
     var studentID: String
+    var uid: String
     static var savedAccount = PocketAccount()
-    init(email: String, password: String, name: String = "user", department: String = "cs", id: String = "111"){
+    init(email: String, password: String, name: String = "user", department: String = "cs", id: String = "111", uid: String = "asd") {
         self.email = email
         self.password = password
         self.nickName = name
         self.department = department
         self.studentID = id
+        self.uid = uid
     }
     override init(){
         self.email = ""
@@ -29,6 +31,7 @@ class PocketAccount: NSObject {
         self.nickName = "Pocket user"
         self.department = ""
         self.studentID = ""
+        self.uid = ""
     }
      required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
