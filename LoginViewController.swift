@@ -98,7 +98,7 @@ class LoginViewController: UIViewController {
     }
     @objc func signUpPressed(){
         let vc = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

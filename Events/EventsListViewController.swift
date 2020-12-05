@@ -32,8 +32,8 @@ class EventsListViewController: UIViewController {
         //self.playSound(soundFileName: "start")
     }
     func update(){
-        self.data = []
-        self.getEvents()
+//        self.data = []
+//        self.getEvents()
         let deadline = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadline){
             //self.playSound(soundFileName: "finish")

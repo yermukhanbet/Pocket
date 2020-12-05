@@ -36,11 +36,11 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         return button
     }()
     @objc func showUnionInfo(){
-        let vc = MapDetailViewController()
+        let vc = MapDetailViewController(type: "Union")
         self.present(vc, animated: true, completion: nil)
     }
     @objc func gwangInfo(){
-        let vc = MapDetailViewController()
+        let vc = MapDetailViewController(type: "Gwanggaetto")
         self.present(vc, animated: true, completion: nil)
     }
     override func viewDidLoad() {
