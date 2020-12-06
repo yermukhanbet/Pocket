@@ -14,8 +14,10 @@ Project is created with:
 * Swift
 * MVC
 * UIKit
+* UserDefaults
 * Firestore: Authentication, Cloud Firestore, Storage
 * Custom TableView, TableViewCell
+* Reachability, Parchment
 * 100% programmatic UI
 	
 ## Features
@@ -23,6 +25,8 @@ List of features ready
 * Authentication through Firebase
 * Login and sign up with your email and password
 * Add event to Firestore after login
+* Save user information inside of app after terminating the app
+* Check for internet connection at launch screen
 
 ## Setup
 
