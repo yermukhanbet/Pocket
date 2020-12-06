@@ -33,3 +33,14 @@ let pocketEventDescription: String = "Event description"
 let pocketEventRoom: String = "Event room"
 let pocketEventParticipants: String = "Event participants"
 let pocketEventTime: String = "Event time  (yy-mm-dd)"
+
+let pocketEventsTitle: String = "Check the events happening"
+let pocketMapTitle: String = "Check the map"
+let pocketAddEventTitle: String = "Add the event"
+
+let pocketEventsDescription: String = "All the events happening in sejong, classified by the major"
+let pocketMapDescription: String = "The map of the campus, where you can see the information about buildings"
+let pocketAddEventDescription: String = "Add your own event to gather people with same interest"
+
+let pocketPrivacyTitle: String = "How We Process Your Data"
+let pocketPrivacyDescription: String = "1.Account set up and administration.\n2.Internal research and development to customized content and enhance the user experience.\n\nSecuring your data, both online and offline, is a priority for us. We have implemented appropriate technical and organizational measures to protect your personal information and ensure a level of security appropriate to the risk."

@@ -22,7 +22,7 @@ class DashboardViewController: UIViewController {
     }()
     lazy var headerImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "events_default")
+        imageView.image = UIImage(named: "gathering")
         imageView.backgroundColor = .white
         return imageView
     }()
@@ -83,6 +83,8 @@ class DashboardViewController: UIViewController {
         imageView.contentMode = .scaleToFill
         return imageView
     }
+    lazy var questionTitles: [String] = [pocketEventTitle, pocketMapTitle, pocketAddEventTitle]
+    lazy var questionDescription: [String] = [pocketEventsDescription,pocketMapDescription,pocketAddEventDescription]
     lazy var views:[UIView] = [createView(),createView(),createView(),createView(), createView()]
     lazy var titles:[UILabel] = [createTitle(),createTitle(),createTitle(),createTitle(), createTitle()]
     lazy var descriptions: [UILabel] = [createDescription(),createDescription(),createDescription(),createDescription(), createDescription()]
@@ -104,10 +106,12 @@ class DashboardViewController: UIViewController {
         let number = Int((sender.titleLabel?.text)!)
         if (number! > 2){
             self.showWrongDataLabel()
-        }else{
-//            let vc = MessageViewController()
-//            vc.modalPresentationStyle = .overFullScreen
-//            present(vc, animated: true, completion: nil)
+        }else {
+            let actionSheet = UIAlertController(title: self.questionTitles[number!], message: self.questionDescription[number!], preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Close", style: .cancel, handler: {action in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            present(actionSheet, animated: true, completion: nil)
         }
     }
     private func showWrongDataLabel(){
@@ -160,9 +164,9 @@ class DashboardViewController: UIViewController {
         let topView = UIView(frame: CGRect(x: 0, y: -100, width: self.view.frame.width, height: 350))
         topView.backgroundColor = .white
         scrollView.addSubview(topView)
-        headerImage.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190)
+        headerImage.frame = CGRect(x: 0, y: -5, width: self.view.frame.width, height: 210)
         self.scrollView.addSubview(headerImage)
-        headerTitle.frame = CGRect(x: 5, y: headerImage.frame.height, width: self.view.frame.width - 5, height: 60)
+        headerTitle.frame = CGRect(x: 5, y: 190, width: self.view.frame.width - 5, height: 60)
         self.scrollView.addSubview(headerTitle)
         var fullDistance = 300
         for item in 0...buttons.count - 1{

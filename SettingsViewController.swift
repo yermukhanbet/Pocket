@@ -36,8 +36,11 @@ class SettingsViewController: UIViewController {
     @objc func buttonActionHandler(_ sender: UIButton){
         switch sender.titleLabel?.text{
         case PocketPolicyLabel:
-            guard let url = URL(string: "https://www.apple.com/legal/privacy/") else { return }
-            UIApplication.shared.open(url)
+        let actionSheet = UIAlertController(title: pocketPrivacyTitle, message: pocketPrivacyDescription, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Close", style: .cancel, handler: {action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        present(actionSheet, animated: true, completion: nil)
             break
         case PocketLogoutLabel:
             AccountManager.sharedInstance.signOut()
