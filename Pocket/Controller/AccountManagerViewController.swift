@@ -18,7 +18,6 @@ class AccountManager: NSObject {
                 UserDefaults.standard.setIsLoggedIn(value: false)
                 completion(false)
             } else {
-                print(result)
                 let user = Auth.auth().currentUser
                 if let user = user{
                     let uid = user.uid
