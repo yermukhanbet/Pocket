@@ -14,7 +14,8 @@ class SignUpViewController: UIViewController {
     var db: Firestore!
     let backgrounImage: UIImageView = {
         let imageView = UIImageView()
-        let image = UIImage(named: "backgroundLogo")
+        let image = UIImage(named: "")
+        imageView.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
         imageView.image = image
         return imageView
     }()

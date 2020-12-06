@@ -23,13 +23,13 @@ class DashboardViewController: UIViewController {
     lazy var headerImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "gathering")
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = #colorLiteral(red: 0.457513988, green: 0.5432828069, blue: 0.6282698512, alpha: 1)
         return imageView
     }()
     lazy var headerTitle: UILabel = {
         let label = UILabel()
         label.text = "Welcome to Pocket Dashboard page!"
-        label.backgroundColor = .white
+        label.backgroundColor = #colorLiteral(red: 0.457513988, green: 0.5432828069, blue: 0.6282698512, alpha: 1)
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 13)
         label.textAlignment = .center
@@ -154,7 +154,7 @@ class DashboardViewController: UIViewController {
     }
     func setupScrollView(){
         scrollView.frame = self.view.frame
-        scrollView.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        scrollView.backgroundColor = #colorLiteral(red: 0.457513988, green: 0.5432828069, blue: 0.6282698512, alpha: 1)
         scrollView.bounces = true
         view.addSubview(scrollView)
         scrollView.bounces = true
@@ -166,7 +166,7 @@ class DashboardViewController: UIViewController {
         scrollView.addSubview(topView)
         headerImage.frame = CGRect(x: 0, y: -5, width: self.view.frame.width, height: 210)
         self.scrollView.addSubview(headerImage)
-        headerTitle.frame = CGRect(x: 5, y: 190, width: self.view.frame.width - 5, height: 60)
+        headerTitle.frame = CGRect(x: 0, y: 190, width: self.view.frame.width, height: 60)
         self.scrollView.addSubview(headerTitle)
         var fullDistance = 300
         for item in 0...buttons.count - 1{
@@ -218,9 +218,10 @@ class DashboardViewController: UIViewController {
         question.widthAnchor.constraint(equalToConstant: 15).isActive = true
         question.heightAnchor.constraint(equalToConstant: 15).isActive = true
         if number < 3{
-            box.backgroundColor = .white
-        }else{
             box.backgroundColor = #colorLiteral(red: 0.9308573921, green: 0.9308573921, blue: 0.9308573921, alpha: 1)
+        }else{
+            box.backgroundColor = #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5972281678)
+            
         }
     }
     private func setupWrongDataLabel(){

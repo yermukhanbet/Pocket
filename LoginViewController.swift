@@ -52,9 +52,10 @@ class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 20
         button.layer.borderColor = UIColor.lightGray.cgColor
-        button.backgroundColor = .black
+        button.backgroundColor = #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
         button.layer.masksToBounds = true
         button.setTitle("Login", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
         button.clipsToBounds = true
         button.isEnabled = false

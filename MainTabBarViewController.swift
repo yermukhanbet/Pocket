@@ -27,7 +27,7 @@ class MainTabBarViewController: UIViewController {
         settingsViewController.title = "settings"
         settingsViewController.tabBarItem.image = settingsImage
         self.tabBar.viewControllers = [dashboardViewController,settingsViewController]
-        self.tabBar.tabBar.backgroundColor = .white
+        self.tabBar.tabBar.backgroundColor = #colorLiteral(red: 0.457513988, green: 0.5432828069, blue: 0.6282698512, alpha: 1)
         self.tabBar.tabBar.unselectedItemTintColor = .lightGray
         self.tabBar.tabBar.tintColor = .red
     }

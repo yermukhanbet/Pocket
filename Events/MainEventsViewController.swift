@@ -14,7 +14,7 @@ class MainEventsViewController: UIViewController {
     let itemNames = ["All", "CS", "BA", "CE"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 0.5820044949)
         createParchment()
     }
     override func viewWillAppear(_ animated: Bool) {
