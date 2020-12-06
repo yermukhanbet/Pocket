@@ -3,9 +3,8 @@
 IOS application designed to help university students in South Korea with
 meeting people with the same interests.
 ## Screenshots
-![Alt text]("https://i.postimg.cc/4xzHfrwD/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-14.png") 
-![Alt text]("https://i.postimg.cc/q74hzj5z/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-18.png") 
-
+<img src="https://i.postimg.cc/4xzHfrwD/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-14.png" style=" width:100px ; height:100px " />
+<img src="https://i.postimg.cc/q74hzj5z/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-18.png" style=" width:100px ; height:100px " />
 ## Technologies
 Project is created with:
 * Swift
