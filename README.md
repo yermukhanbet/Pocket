@@ -2,6 +2,7 @@
 ## General info
 IOS application designed to help university students in South Korea with
 meeting people with the same interests.
+You can find demo video in following weblink: https://www.youtube.com/watch?v=cb_EmGyi7SA
 ## Screenshots
 <img src="https://i.postimg.cc/4xzHfrwD/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-14.png" style=" width:30px ; height:50px " />
 <img src="https://i.postimg.cc/Gt89ZNHS/Simulator-Screen-Shot-i-Phone-11-Pro-2020-12-06-at-19-58-22.png" style=" width:30px ; height:50px " />
